@@ -1,0 +1,28 @@
+Goul de la Tannerie {C}
+Luolasukellus
+wgs84
+44.36968
+4.64143
+Ardeche
+Ranska
+Europe
+Tarkka 2250
+Ralf Strandell
+Caving
+Rock,Diving
+
+
+Goul du Pont {C}
+Luolasukellus
+wgs84
+44.3704
+4.64103
+Ardeche
+Ranska
+Europe
+Tarkka 575
+Ralf Strandell
+Caving
+Rock,Diving
+
+

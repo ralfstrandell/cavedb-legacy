@@ -1,0 +1,238 @@
+Cueva del Viento - Visitor centre
+
+wgs84
+28.352077
+-16.704068
+Tenerife
+Spain
+Europe
+Tarkka 18000
+Ralf Strandell
+Caving
+Rock
+https://www.cuevadelviento.net/?lang=en
+
+Cueva del Viento - Parkkipaikka
+
+wgs84
+28.34565690
+-16.69754671
+Tenerife
+Spain
+Europe
+Tarkka 18000
+Ralf Strandell
+Caving
+Rock
+
+
+Cueva del Viento - Suuaukko {V4}
+Luolan suulla lukittu kalteri. Luolassa olisi myös köysilaskeutumista (SRT), mutta se ei kuulu turistiluolakierrokseen.
+wgs84
+28.343589
+-16.698685
+Tenerife
+Spain
+Europe
+Tarkka 18000
+Ralf Strandell
+Caving
+Rock,Basic
+
+
+Cueva del Hielo {V4}
+Laavaputki 3300 metrin korkeudessa.
+wgs84
+28.274667
+-16.633117
+Tenerife
+Spain
+Europe
+Tarkka 48
+Ralf Strandell
+Caving
+Rock
+https://www.tenerifeocio.com/excursiones-en-tenerife/cueva-del-hielo-o-de-los-cazadores
+
+Cueva Honda / Cueva de los Burros {V4}
+Laavaputki, johon pääsee romahtaneen katon aukosta. Todennäköisesti köysi on välttämätön (ei kokeiltu). Ympäröivällä laavakentällä ei kasva puita.
+wgs84
+28.30920028
+-16.37280404
+Tenerife
+Spain
+Europe
+Tarkka 100
+Ralf Strandell
+Caving
+Rock,SRT
+
+
+Laavaputki {V4}
+
+wgs84
+28.31134390
+-16.37266995
+Tenerife
+Spain
+Europe
+Arvio 5
+Ralf Strandell
+Caving
+Rock
+
+
+La Cueva del Tancón, Puerto de Santiago {H}
+Luola on yhteydessä mereen. Mainingit voivat aiheuttaa voimakkaita virtauksia, joiden takia ihmisiä on hukkunut. Uinti on rauhallisen veden aikana mahdollista. Tunnettu uimapaikka.
+wgs84
+28.239779
+-16.845772
+Tenerife
+Spain
+Europe
+Arvio 15
+Ralf Strandell
+Caving
+Rock,Swimming
+https://www.youtube.com/watch?v=CteOED5QvcY
+
+Abama Cave / Cueva de los Cerebros {V4}
+Luolasukellus
+wgs84
+28.173052
+-16.807714
+Tenerife
+Spain
+Europe
+Arvio 70
+Ralf Strandell
+Caving
+Rock,Diving
+https://www.youtube.com/watch?v=ZXhhu8zwv4c
+
+Cueva Roja {Z}
+Urbaani lippaluola, joka syntyi kun kiveä louhittiin rakennusaineeksi.
+wgs84
+28.475173
+-16.268853
+Tenerife
+Spain
+Europe
+Arvio 25
+Ralf Strandell
+Caving
+Rock
+
+
+Cueva De Los Camarones Palm Mar / Cueva del Palmar {V4}
+Luolasukellus
+wgs84
+28.027045
+-16.708527
+Tenerife
+Spain
+Europe
+Arvio 800
+Ralf Strandell
+Caving
+Rock,Diving
+https://www.youtube.com/watch?v=qOQ8UybHVag
+
+Cueva de los Verdes / Tunel de la Atlantida {V4}
+
+wgs84
+29.160690
+-13.438676
+Lanzarote
+Spain
+Europe
+Arvio 7500
+Ralf Strandell
+Caving
+Rock,Basic,Diving
+https://www.cactlanzarote.com/en/cact/cueva-de-los-verdes/
+
+Grutas de Sáo Vicente - Visitor centre {V4}
+
+wgs84
+32.797784
+-17.041568
+Madeira
+Portugal
+Europe
+Tarkka 1000
+Ralf Strandell
+Caving
+Rock
+https://grutasecentrodovulcanismosaovicente.com/
+
+Predjama {C}
+Kuuluu Postojnska -luolastoon. Luolassa on Predjamski grad -linna.
+wgs84
+45.815855
+14.126722
+Postojna
+Slovenia
+Europe
+Arvio 14000
+Ralf Strandell
+Caving
+Rock
+https://www.postojnska-jama.eu/en/attractions-in-the-park/cave-under-predjama-castle/
+
+Pivka jama {C}
+Kuuluu Postojnska -luolastoon. Leirintäalueen oma luola. Läpiretki.
+wgs84
+45.804950
+14.204320
+Postojna
+Slovenia
+Europe
+Arvio 5000
+Ralf Strandell
+Caving
+Rock
+http://camping-postojna.com/en/
+
+Black cave / Crna jama {C}
+Kuuluu Postojnska -luolastoon
+wgs84
+45.799807
+14.207269
+Postojna
+Slovenia
+Europe
+Arvio 3300
+Ralf Strandell
+Caving
+Rock
+https://www.postojnska-jama.eu/en/attractions-in-the-park/pivka-and-black-caves/
+
+Postojnska jama {C}
+Myös turistiluola
+wgs84
+45.783064
+14.203848
+Postojna
+Slovenia
+Europe
+Tarkka 24340
+Ralf Strandell
+Caving
+Rock
+https://www.postojnska-jama.eu/en/
+
+Skocjanske jame {C}
+
+wgs84
+45.663228
+13.989182
+Sežana
+Slovenia
+Europe
+Arvio 6000
+Ralf Strandell
+Caving
+Rock
+https://www.park-skocjanske-jame.si/en
+

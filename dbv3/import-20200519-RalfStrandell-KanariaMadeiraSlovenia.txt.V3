@@ -1,0 +1,374 @@
+---- 	CAVE
+name 	Cueva del Viento - Visitor centre
+id 	
+class 	
+lacc 	exact
+lmts 	18000
+dpth 	
+desc 	
+gps 	28.352077,-16.704068
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.cuevadelviento.net/?lang=en
+webt 	Cueva del Viento - Visitor centre
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva del Viento - Parkkipaikka
+id 	
+class 	
+lacc 	exact
+lmts 	18000
+dpth 	
+desc 	
+gps 	28.34565690,-16.69754671
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	
+webt 	Cueva del Viento - Parkkipaikka
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva del Viento - Suuaukko
+id 	
+class 	V4
+lacc 	exact
+lmts 	18000
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}. Luolan suulla lukittu kalteri. Luolassa olisi myös köysilaskeutumista (SRT), mutta se ei kuulu turistiluolakierrokseen.
+gps 	28.343589,-16.698685
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	Basic
+webu 	
+webt 	Cueva del Viento - Suuaukko
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva del Hielo
+id 	
+class 	V4
+lacc 	exact
+lmts 	48
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}. Laavaputki 3300 metrin korkeudessa.
+gps 	28.274667,-16.633117
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.tenerifeocio.com/excursiones-en-tenerife/cueva-del-hielo-o-de-los-cazadores
+webt 	Cueva del Hielo
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva Honda
+an 	Cueva Honda
+an 	Cueva de los Burros
+id 	
+class 	V4
+lacc 	exact
+lmts 	100
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}. Laavaputki, johon pääsee romahtaneen katon aukosta. Todennäköisesti köysi on välttämätön (ei kokeiltu). Ympäröivällä laavakentällä ei kasva puita.
+gps 	28.30920028,-16.37280404
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	SRT
+webu 	
+webt 	Cueva Honda
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Laavaputki
+id 	
+class 	V4
+lacc 	approx
+lmts 	5
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}.
+gps 	28.31134390,-16.37266995
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	
+webt 	Laavaputki
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	La Cueva del Tancón
+id 	
+class 	H
+lacc 	approx
+lmts 	15
+dpth 	
+desc 	Geneettis-morfologinen luokitus {H}. Luola on yhteydessä mereen. Mainingit voivat aiheuttaa voimakkaita virtauksia, joiden takia ihmisiä on hukkunut. Uinti on rauhallisen veden aikana mahdollista. Tunnettu uimapaikka.
+gps 	28.239779,-16.845772
+loc 	Puerto de Santiago
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	Swimming
+webu 	https://www.youtube.com/watch?v=CteOED5QvcY
+webt 	La Cueva del Tancón
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Abama Cave
+an 	Abama Cave
+an 	Cueva de los Cerebros
+id 	
+class 	V4
+lacc 	approx
+lmts 	70
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}. Luolasukellus
+gps 	28.173052,-16.807714
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	Diving
+webu 	https://www.youtube.com/watch?v=ZXhhu8zwv4c
+webt 	Abama Cave
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva Roja
+id 	
+class 	Z
+lacc 	approx
+lmts 	25
+dpth 	
+desc 	Geneettis-morfologinen luokitus {Z}. Urbaani lippaluola, joka syntyi kun kiveä louhittiin rakennusaineeksi.
+gps 	28.475173,-16.268853
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	
+webt 	Cueva Roja
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva De Los Camarones Palm Mar
+an 	Cueva De Los Camarones Palm Mar
+an 	Cueva del Palmar
+id 	
+class 	V4
+lacc 	approx
+lmts 	800
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}. Luolasukellus
+gps 	28.027045,-16.708527
+loc 	Tenerife
+area 	Tenerife
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	Diving
+webu 	https://www.youtube.com/watch?v=qOQ8UybHVag
+webt 	Cueva De Los Camarones Palm Mar
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Cueva de los Verdes
+an 	Cueva de los Verdes
+an 	Tunel de la Atlantida
+id 	
+class 	V4
+lacc 	approx
+lmts 	7500
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}.
+gps 	29.160690,-13.438676
+loc 	Lanzarote
+area 	Lanzarote
+ctry 	Spain
+cont 	Europe
+act 	Caving
+tags 	Rock
+tags 	Basic
+tags 	Diving
+webu 	https://www.cactlanzarote.com/en/cact/cueva-de-los-verdes/
+webt 	Cueva de los Verdes
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Grutas de Sáo Vicente - Visitor centre
+id 	
+class 	V4
+lacc 	exact
+lmts 	1000
+dpth 	
+desc 	Geneettis-morfologinen luokitus {V4}.
+gps 	32.797784,-17.041568
+loc 	Madeira
+area 	Madeira
+ctry 	Portugal
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://grutasecentrodovulcanismosaovicente.com/
+webt 	Grutas de Sáo Vicente - Visitor centre
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Predjama
+id 	
+class 	C
+lacc 	approx
+lmts 	14000
+dpth 	
+desc 	Geneettis-morfologinen luokitus {C}. Kuuluu Postojnska -luolastoon. Luolassa on Predjamski grad -linna.
+gps 	45.815855,14.126722
+loc 	Postojna
+area 	Postojna
+ctry 	Slovenia
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.postojnska-jama.eu/en/attractions-in-the-park/cave-under-predjama-castle/
+webt 	Predjama
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Pivka jama
+id 	
+class 	C
+lacc 	approx
+lmts 	5000
+dpth 	
+desc 	Geneettis-morfologinen luokitus {C}. Kuuluu Postojnska -luolastoon. Leirintäalueen oma luola. Läpiretki.
+gps 	45.804950,14.204320
+loc 	Postojna
+area 	Postojna
+ctry 	Slovenia
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	http://camping-postojna.com/en/
+webt 	Pivka jama
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Black cave
+an 	Black cave
+an 	Crna jama
+id 	
+class 	C
+lacc 	approx
+lmts 	3300
+dpth 	
+desc 	Geneettis-morfologinen luokitus {C}. Kuuluu Postojnska -luolastoon
+gps 	45.799807,14.207269
+loc 	Postojna
+area 	Postojna
+ctry 	Slovenia
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.postojnska-jama.eu/en/attractions-in-the-park/pivka-and-black-caves/
+webt 	Black cave
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Postojnska jama
+id 	
+class 	C
+lacc 	exact
+lmts 	24340
+dpth 	
+desc 	Geneettis-morfologinen luokitus {C}. Myös turistiluola
+gps 	45.783064,14.203848
+loc 	Postojna
+area 	Postojna
+ctry 	Slovenia
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.postojnska-jama.eu/en/
+webt 	Postojnska jama
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
+---- 	CAVE
+name 	Skocjanske jame
+id 	
+class 	C
+lacc 	approx
+lmts 	6000
+dpth 	
+desc 	Geneettis-morfologinen luokitus {C}.
+gps 	45.663228,13.989182
+loc 	Sežana
+area 	Sežana
+ctry 	Slovenia
+cont 	Europe
+act 	Caving
+tags 	Rock
+webu 	https://www.park-skocjanske-jame.si/en
+webt 	Skocjanske jame
+weby 	2020
+webp 	Ralf Strandell
+litt 	
+mapu 	
