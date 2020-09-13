@@ -1,0 +1,252 @@
+Hullberga grottor I och II, Brändö [AL1] {ABH}
+Sota-aikojen pakopaikkoja ja kalastajien leiripaikkoja, molemmat 4-5x3m
+wgs84
+60.531973617
+20.872400687
+Ahvenanmaa
+Finland
+Europe
+Tarkka 4
+Aimo Kejonen
+Caving
+Rock
+
+
+Djupvikskyrkan, Geta [AL3] {BD3H}
+Luola-aukkohämähäkki runsaslukuinen
+wgs84
+60.400175482
+19.831062119
+Ahvenanmaa
+Finland
+Europe
+Tarkka 7.7
+Aimo Kejonen
+Caving
+Rock
+
+
+Löfvingsgrottan, Geta [AL5] {BHD3}
+
+wgs84
+60.391246770
+19.836460783
+Ahvenanmaa
+Finland
+Europe
+Tarkka 25
+Aimo Kejonen
+Caving
+Rock
+
+
+Borgögrottan, Hammarland [AL6] {BE}
+
+wgs84
+60.181351290
+19.679719289
+Ahvenanmaa
+Finland
+Europe
+Tarkka 6
+Aimo Kejonen
+Caving
+Rock
+
+
+Önningeby I / Backelugnen, Jomala [AL7] {D3H}
+Pilari keskellä.
+wgs84
+60.128936173
+20.034121207
+Ahvenanmaa
+Finland
+Europe
+Tarkka 3.6
+Aimo Kejonen
+Caving
+Rock
+
+
+Önningeby II / Klapperstens-ugnen, Jomala [AL8] {D3H}
+Pilari keskellä.
+wgs84
+60.128508433
+20.037012501
+Ahvenanmaa
+Finland
+Europe
+Tarkka 6
+Aimo Kejonen
+Caving
+Rock
+
+
+Ingby Trollstugan / Ingby Trollkyrkan / Ingbygrottan, Lemland [AL9] {BE}
+
+wgs84
+60.171795683
+19.945665212
+Ahvenanmaa
+Finland
+Europe
+Tarkka 8
+Aimo Kejonen
+Caving
+Rock
+
+
+Söderbygrottan / Västerberget grottan, Lemland [AL10] {ED3H}
+2x4m
+wgs84
+60.063524560
+20.075180204
+Ahvenanmaa
+Finland
+Europe
+Tarkka 2
+Aimo Kejonen
+Caving
+Rock
+
+
+Bistorpin luola, Lemland [AL11] {BD3H}
+2-4x3m
+wgs84
+60.086523816
+20.131138307
+Ahvenanmaa
+Finland
+Europe
+Tarkka 3
+Aimo Kejonen
+Caving
+Rock
+
+
+Jättehandtaget, Saltvik [AL13] {AD2D3KH}
+1x4m
+wgs84
+60.316042785
+20.053208091
+Ahvenanmaa
+Finland
+Europe
+Tarkka 1
+Aimo Kejonen
+Caving
+Rock
+
+
+Enbolstadbergenin Herrdalsgrottan, Saltvik [AL14] {ABD3}
+
+wgs84
+60.332998075
+19.990979789
+Ahvenanmaa
+Finland
+Europe
+Tarkka 4
+Aimo Kejonen
+Caving
+Rock
+
+
+Kasbergsgrottan / Väderbergsgrottan, Saltvik [AL15] {BH}
+10x20m
+wgs84
+60.347847844
+20.057538678
+Ahvenanmaa
+Finland
+Europe
+Tarkka 10
+Aimo Kejonen
+Caving
+Rock
+
+
+Orrkärrsgrottan, Saltvik [AL16] {EH}
+
+wgs84
+60.296744818
+20.203685516
+Ahvenanmaa
+Finland
+Europe
+Tarkka 13
+Aimo Kejonen
+Caving
+Rock
+
+
+Båxö Rövarbergsstugan / Båxögrottan / Rövarkulan, Saltvik [AL17] {BE}
+
+wgs84
+60.396208559
+20.106931243
+Ahvenanmaa
+Finland
+Europe
+Tarkka 12
+Aimo Kejonen
+Caving
+Rock
+
+
+Kloddstugan, Saltvik [AL18] {BEH}
+
+wgs84
+60.318784381
+20.112304742
+Ahvenanmaa
+Finland
+Europe
+Tarkka 7
+Aimo Kejonen
+Caving
+Rock
+
+
+Högskärsgrotta, Vårdö [AL19] {A}
+
+wgs84
+60.295238524
+20.435185067
+Ahvenanmaa
+Finland
+Europe
+Tarkka 2.5
+Aimo Kejonen
+Caving
+Rock
+
+
+Trollskärs grotta / Trollskärsugnen, Vårdö [AL20] {A}
+
+wgs84
+60.335270839
+20.356641231
+Ahvenanmaa
+Finland
+Europe
+Tarkka 2.9
+Aimo Kejonen
+Caving
+Rock
+
+
+Brunnskobbin luola / Brunnskoppankittel, Vårdö [AL21] {A}
+
+wgs84
+60.442924881
+20.383939821
+Ahvenanmaa
+Finland
+Europe
+Tarkka 2
+Aimo Kejonen
+Caving
+Rock
+
+
