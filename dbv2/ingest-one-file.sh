@@ -162,7 +162,7 @@ cat $DATA | LC_ALL=C sed -e 's/\r$//' | while read cave # 1
 do
 	if [ "$DEBUG" = "true" ]; then set +x; fi
 
-	read descr	# 2
+	read descr	# 2 THESE ARE IN FINNISH
 	read ref	# 3
 	read y		# 4 latitude or N
 	read x		# 5 longitude or E
@@ -288,18 +288,38 @@ do
 		# if [ "$class" != "" ]; then finnishdata="${finnishdata} {${class}}"; fi
 
 	# UPDATE DESCRIPTION WITH ID AND CLASS
-
+		# descr gets reset at read, but the following need to be reset here
+		descr_fi="";
+		descr_se="";
+		descr_en="";
 		if [ "$class" != "" -o "$cid" != "" ]
 		then # update description.
-			if [ "$descr" != "" ]; then descr=" $descr"; fi # add space
+			if [ "$descr" != "" ]; then
+				descr=" $descr";
+				descr_fi=" $descr";
+				descr_se=" Mera information på finska.";
+				descr_en=" More information in Finnish.";
+			fi # add space
 			if [ "$class" = "" ]	# or [ -z "$class" ]
 			then	# lisää vain ID
-				descr="Luolan tunniste ${cid}.$descr"
+				descr="Luolan tunniste ${cid}.$descr";
+				descr_fi="Luolan tunniste ${cid}.$descr_fi";
+				descr_se="Finsk grott-ID ${cid}.$descr_se";
+				descr_en="Finnish cave ID ${cid}.$descr_en";
 			else	# lisää luokitus ja ehkä ID
-				descr="Geneettis-morfologinen luokitus {${class}}.$descr"
-				if [ "$cid" != "" ]; then descr="Luolan tunniste ${cid}. $descr"; fi
+				descr="Geneettis-morfologinen luokitus {${class}}.$descr";
+				descr_fi="Geneettis-morfologinen luokitus {${class}}.$descr_fi";
+				descr_se="Finsk genetisk-morfologisk grottklass {${class}}.$descr_se";
+				descr_en="Finnish genetic-morphological cave class {${class}}.$descr_en";
+				if [ "$cid" != "" ]; then
+					descr="Luolan tunniste ${cid}. $descr";
+					descr_fi="Luolan tunniste ${cid}. $descr_fi";
+					descr_se="Finsk grott-ID ${cid}. $descr_se";
+					descr_en="Finnish cave ID ${cid}. $descr_en";
+				fi
 			fi
 		fi
+		
 
 	# EXTRACT ALTERNATIVE NAMES
 		# prepend [" and append "] and replace each " / " with ", "
@@ -459,7 +479,9 @@ EOKML
 		"properties": {
 			"n": "${name}, ${city}",
 			"an": ${namelist},
-			"d": "${descr}",
+			"d": {	"fi": "${descr_fi}",
+				"se": "${descr_se}",
+				"en": "${descr_en}" },
 			"la": "${la}",
 			"l": ${length},
 			"k": "${location}",
