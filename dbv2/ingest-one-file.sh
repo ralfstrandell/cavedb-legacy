@@ -223,7 +223,7 @@ split (classString) {
 	done
 
 	psgeotags="";
-	if [ "Rock" == "true" ] psgeotags="${psgeotags}\"Rock\",";
+	if [ "Rock" == "true" ]; then psgeotags="${psgeotags}\"Rock\","; fi
 	# MANY MORE NEED TO BE INCLUDED FROM ABOVE
 }
 
