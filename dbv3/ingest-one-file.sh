@@ -112,6 +112,121 @@ db_add_records () {
 
 }
 
+split (classString) {
+
+	# Remove commas and spaces, then prepend letters with spaces, then remove the first space on the line
+	classes_spaced=`echo "$classString" | sed -e 's/[, ]//g' -e 's/[a-zA-Z]/ &/g' -e 's/^ //'
+
+
+	# INIT - TYPES OF SURROUNDING MATERIAL
+	Rock=false;
+	Glacier=false;		# ice
+	Other=false;		# moraine, turf
+	ManMade=false;		# concrete walls
+
+	# INIT - ROCK TYPES
+	#	Igneous/magmakivet
+	#		Volcanic/vulkaaniset
+	#		Other/Syvä- ja juonikivet
+	#	Sedimentary/sedimenttikivet
+	#		Siliciclastic: Mudrocks/savikivet
+	#		Siliciclastic: Sandstones/hiekkakivet
+	#		Carbonate/karbonaattikivet: Limestone, Dolomite/kalkkikivi ja dolomiitti
+	#		Sulfate/sulfaattikivet: Gypsum/kipsi
+	#		Halite: rock salt/vuorisuola
+	#	Metamorphic/metamorfiset
+	#		Marble/marmorit
+	#		Other/muut metamorfiset
+
+	Mudrocks=false;		# sedimentary, siliciclastic
+	Sandstones=false;	# sedimentary, siliciclastic
+	Carbonate=false;	# sedimentary (limestone and dolomite)
+	Sulfate=false;		# sedimentary (gypsum)
+	Halite=false;		# sedimentary (rock salt)
+	Volcanic=false;		# igneous (solidified lava)
+	NSNV=false;		# nonsedimentary nonvolcanic rocks/syväkivet, juonikivet, metamorfiset kivet
+	Marble=false;		# metamorphic
+
+	# INIT - TYPES OF OTHER MATERIAL
+	Turf=false;
+	Moraine=false;
+
+	# INIT - CLASSES 1 (morphological)
+	Boulders=false;		# lohkareluola
+	Crevice=false; 		# rakoluola, psgeo: crack
+	Shelter=false;		# lippaluola
+	Karst=false;		# karstiluola
+	Tunnel=false;		# tunneli
+	Blister=false;		# onkalo, kupla
+	Tafone=false;		# tafonionkalo
+
+	# INIT - CLASSES 2 (genetic)
+	Primary=false;		# primary volcanic, primary organic
+	Growth=false;		# reef,overgrown (fi: piilopurot, umpeen kasvaneet lammet)
+	Tectonic=false;		# tectonic, including neotectonic of course
+	Dissolution=false;	# karst
+	Weathering=false;
+	Glacial=false;		# pseudokarst
+	Erosion=false;		# rantavoimat (shore), joet (fluvial)
+	Shore=false;		# caves carved by waves, current, winter ice
+	Fluvial=false;		# caves carved by rivers, glacial rivers included of course
+	Freezing=false;		# ice caves, a little bit strange classification, but practical
+	GroundwaterPiping=false;# erosion
+	Excavated=false;	# at least partially
+
+	# PROCESS CLASS STRING
+	set $classString
+	counter=$#
+	while [ $counter -gt 0 ]
+	do
+		c="$1";
+		shift;
+		let counter--;
+
+		case "$c" in
+		#	MATERIAL   SUBTYPE		MORPHOLOGY      GENETICS          		COMMENT
+		A|a)	Rock=true; NSNV=true; 		Blister=true;	Primary=true;;			# blister cave (igneous origin!)
+		B|b)	Rock=true; 			Crevice=true;	Tectonic=true;;			# tectonic crevice caves
+		C|c)	Rock=true;			Karst=true;	Dissolution=true;;		# karst caves
+		C1|c1)	Rock=true; Carbonate=true;	Karst=true;	Dissolution=true;;		# same
+		C2|c2)	Rock=true; Sulfate=true;	Karst=true;	Dissolution=true;;		# same
+		C3|c3)	Rock=true; Halite=true;		Karst=true;	Dissolution=true;;		# same
+		D|d)	Rock=true;					Weathering=true;;		# generic weathering cave
+		D1|d1)	Rock=true;			Tafone=true;	Weathering=true;;		# tafone
+		D2|d2)	Rock=true;			Crevice=true;	Weathering=true;;		# preglacial weathering crack
+		D3|d3)	Rock=true;					Weathering=true;;		# other weathering caves
+		E|e)	Rock=true;			Crevice=true;	Glacial=true;;			# glacial crevice caves
+		F|f)	Rock=true;			Boulders=true;	Glacial=true;;			# glacial boulder caves
+		G|g)	Other=true; Moraine=true;	Blister=true;	Glacial=true;;			# glacial earth caves (ice melting)
+		H|h)	Rock=true;					Erosion=true; Shore=true;;	# cave caused by shore action
+		I|i)	Rock=true;			Boulders=true;;					# Tectonic/Glacial/Weathering (fi: vuorenvieremät)
+		I1|i1)	Rock=true;			Boulders=true;	Tectonic=true;;			# (neo)Tectonic talus caves
+		J|j)	Rock=true;					Erosion=true; Fluvial=true;;	# caves caused by rivers
+		K|k)	Rock=true;			Shelter=true;	Erosion=true; Glacial=true;;	# glacial shelter caves
+		L|l)	Rock=true; 					Freezing=true;;			# ice caves (caves with ice)
+		M|m)	Glacier=true;;									# crevices/tunnels; gravity/meltwater/volcanic heat
+		N1|n1)	Rock=true; Carbonate=true;			Primary=true; Growth=true;;	# reefs
+		N2|n2)	Other=true; Turf=true;				Primary=true; Growth=true;;	# overgrown by mosses
+		V|v)	Rock=true; Volcanic=true;			Primary=true;;			# unspecified volcanic cave
+		V1|v1)	Rock=true; Volcanic=true;			Primary=true;;			# magma chambers, eruptive fissures
+		V2|v2)	Rock=true; Volcanic=true;	Tunnel=true;	Primary=true;;			# lava tubes, lava toes (surface tubes)
+		V3|v3)	Rock=true; Volcanic=true;			Primary=true;;			# other types of caves in lava flows:
+													# pressure ridge/plateau caves, traversal caves (gravity),
+													# lava falls, lava molds, blisters, ...
+		V4|v4)	Rock=true; Volcanic=true;			Primary=true;;			# gas explosion caves (pneumatogenetic)
+													# e.g. hollow tall welded spatter cones
+		Z|z)	Rock=true;					Excavated=true;;		# at least partially excavated caves
+		Z1|z1)	Rock=true;					Excavated=true;;		# e.g. salt ingestion caves
+		Z2|z2)	Rock=true;					Excavated=true;;		# e.g. mined caves, 'cave like' mines, mines
+		*)	;;
+		esac
+	done
+
+	psgeotags="";
+	if [ "Rock" == "true" ] psgeotags="${psgeotags}\"Rock\",";
+	# MANY MORE NEED TO BE INCLUDED FROM ABOVE
+}
+
 
 # TURN DEBUGGING ON/OFF
 	# VERBOSE=true; # debug
@@ -162,7 +277,7 @@ cat $DATA | LC_ALL=C sed -e 's/\r$//' | while read cave # 1
 do
 	if [ "$DEBUG" = "true" ]; then set +x; fi
 
-	read descr	# 2
+	read descr	# 2 THESE ARE IN FINNISH
 	read ref	# 3
 	read y		# 4 latitude or N
 	read x		# 5 longitude or E
@@ -288,18 +403,38 @@ do
 		# if [ "$class" != "" ]; then finnishdata="${finnishdata} {${class}}"; fi
 
 	# UPDATE DESCRIPTION WITH ID AND CLASS
-
+		# descr gets reset at read, but the following need to be reset here
+		descr_fi="";
+		descr_se="";
+		descr_en="";
 		if [ "$class" != "" -o "$cid" != "" ]
 		then # update description.
-			if [ "$descr" != "" ]; then descr=" $descr"; fi # add space
+			if [ "$descr" != "" ]; then
+				descr=" $descr";
+				descr_fi=" $descr";
+				descr_se=" Mera information på finska.";
+				descr_en=" More information in Finnish.";
+			fi # add space
 			if [ "$class" = "" ]	# or [ -z "$class" ]
 			then	# lisää vain ID
-				descr="Luolan tunniste ${cid}.$descr"
+				descr="Luolan tunniste ${cid}.$descr";
+				descr_fi="Luolan tunniste ${cid}.$descr_fi";
+				descr_se="Finsk grott-ID ${cid}.$descr_se";
+				descr_en="Finnish cave ID ${cid}.$descr_en";
 			else	# lisää luokitus ja ehkä ID
-				descr="Geneettis-morfologinen luokitus {${class}}.$descr"
-				if [ "$cid" != "" ]; then descr="Luolan tunniste ${cid}. $descr"; fi
+				descr="Geneettis-morfologinen luokitus {${class}}.$descr";
+				descr_fi="Geneettis-morfologinen luokitus {${class}}.$descr_fi";
+				descr_se="Finsk genetisk-morfologisk grottklass {${class}}.$descr_se";
+				descr_en="Finnish genetic-morphological cave class {${class}}.$descr_en";
+				if [ "$cid" != "" ]; then
+					descr="Luolan tunniste ${cid}. $descr";
+					descr_fi="Luolan tunniste ${cid}. $descr_fi";
+					descr_se="Finsk grott-ID ${cid}. $descr_se";
+					descr_en="Finnish cave ID ${cid}. $descr_en";
+				fi
 			fi
 		fi
+		
 
 	# EXTRACT ALTERNATIVE NAMES
 		# prepend [" and append "] and replace each " / " with ", "
@@ -459,7 +594,9 @@ EOKML
 		"properties": {
 			"n": "${name}, ${city}",
 			"an": ${namelist},
-			"d": "${descr}",
+			"d": {	"fi": "${descr_fi}",
+				"se": "${descr_se}",
+				"en": "${descr_en}" },
 			"la": "${la}",
 			"l": ${length},
 			"k": "${location}",

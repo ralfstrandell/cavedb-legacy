@@ -1,0 +1,44 @@
+# WARNING: TERMS ARE INACCURATE. JSON DEFINITION NEEDS WORK.
+
+
+CLASS	PSGEO TAGS: CAVE TYPES AND ROCK TYPES			
+
+A	["Rock","Rock-Granite","Morphology-Crystallization"]	# NOT GRANITE/CRYSTALLIZATION
+B	["Rock","Morphology-Crack"]				# CREVICE
+C	["Rock","Morphology-Karst"]
+C1	["Rock","Rock-Limestone","Morphology-Karst"] 		# CARBONATE
+C2	["Rock","Rock-Gypsum","Morphology-Karst"]		# SULFATE
+C3	["Rock","Rock-Salt","Morphology-Karst"]			# HALITE
+D	["Rock","Morphology-Weathering"]
+D1	["Rock","Morphology-Weathering"]			# tafoni
+D2	["Rock","Morphology-Weathering"]			# preglasiaalinen rakorapauma	
+D3	["Rock","Morphology-Weathering"]			# muu rapautumisluola
+E	["Rock","Morphology-Crack"]				# CREVICE
+F	["Rock","Morphology-Boulders"]
+G	["Other-Material","Morphology-Other"]
+H	["Rock","Morphology-Erosion"]
+I	["Rock","Morphology-Boulders"]
+J	["Rock","Morphology-Erosion"]
+K	["Rock","Morphology-Erosion"]
+L	["Rock","Ice"]
+M	["Ice"]
+N	["Rock","Morphology-Boulders"]				# neotectonic boulder cave	
+O1	["Rock","Rock-Limestone","Morphology-Organic"]		# riutat/reefs
+O2	["Other-Material","Morphology-Organic"]			# turve/turf
+V	["Rock","Rock-Volcanic","Morphology-Volcanic"]
+V1	["Rock","Rock-Volcanic","Morphology-Volcanic"]		# magma chamber/eruptive fissure
+V2	["Rock","Rock-Volcanic","Morphology-Volcanic"]		# lava tubes/lava toes (surface tubes)
+V3	["Rock","Rock-Volcanic","Morphology-Volcanic"]		# other lava flow related caves
+								#	- pressure ridge/plateau caves
+								#	- traversal caves (gravity)
+								#	- lava falls
+								#       - lava mold caves
+V4	["Rock","Rock-Volcanic","Morphology-Volcanic"]		# hollow tall welded spatter cones
+V5	["Rock","Rock-Volcanic","Morphology-Volcanic"]		# blister caves	
+Z	["Rock"]						# Excavated cavity
+Z1	["Rock"]						# by an animal (salt ingestion caves)	
+Z2	["Rock"]						# by humans (tunnel, mine)
+
+
+PSGEO: PUUTTUU MUODOT:
+TYYPPI		Crystallization,Organic,Other,Volcanic
