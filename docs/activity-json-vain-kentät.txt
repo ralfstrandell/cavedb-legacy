@@ -1,0 +1,301 @@
+Activities
+
+   Caving
+
+      The sub-activities consist of a number sub-attributes that can be
+      combined to represent a detailed activity and environment.
+
+      Environment
+
+         Rock, Ice, Other-material.
+
+         Rock-Granite, Rock-Limestone, Rock-Sandstone,
+         Rock-Marble, Rock-Volcanic, and Rock-Other.
+
+         Morphology-Crack, Morphology-Boulders, Morphology-Karst,
+         Morphology-Volcanic, Morphology-Erosion, and Morphology-Other.
+
+      Caving method
+
+         None, Basic, SRT, Swimming, Boating, Diving, Digging, and Skiing.
+         More than one of these may appear in a single trip.
+
+Generation 2 Format
+
+   For example, an empty file contains just:
+
+             {
+               "type": "FeatureCollection",
+               "features": []
+             }
+
+   Here's an example of a file with just one entry:
+
+     {
+       "type": "FeatureCollection",
+       "features": [
+           {
+             "type":
+                "Feature",
+             "geometry":
+                { "type": "Point",
+                  "coordinates": [60.30145486, 24.62792567] },
+             "properties": {
+               "n": "Kattilajaerven iso lippaluola, Nuuksio, Espoo",
+               "m": "https://example.com/cavemap-kattilajarvi.pdf",
+               "l": 9.3,
+               "la": "exact",
+               "k": "Espoo",
+               "c": "Finland",
+               "o": "Europe",
+               "rl": [{ "t": "Kattilajaervi roof caves",
+                        "i": "https://example.com/a-picture.jpg",
+                        "w": ["Jari"],
+                        "y": 2020,
+                        "m": 5,
+                        "a": ["Caving"],
+                        "sa": ["Rock"],
+                        "u": "https://example.com/an-article.html" }
+                     ]
+              }
+           }
+       ]
+     }
+
+
+
+
+5.2.  Properties
+
+   The properties described in a GeoJSON file are as follows:
+
+   n
+
+      The name of the place.  By convention the last item of the name
+      (after last comma) should be city name.  Mandatory.
+
+   an
+
+      This optional field allows listing alternative names, should the
+      place have several names or several alternative spellings of the
+      same name.  The value, if present, should be an array of strings
+      in the same format as in the "n" field.
+
+   lat, lon
+
+      The coordinates, in WGS84 format.  Mandatory.
+
+   ac
+
+      In some cases there are alternative coordinates for some reason,
+      perhaps different measurements or different entrances or different
+      location within a larger entity.  The "ac" field can be used to
+      carry these coordinates.  Its value should be an array of records,
+      with each record having the "lat" and "lon" fields.  The "ac"
+      field is optional.
+
+   d
+
+      Free-form text description of the location.
+
+             "d": "This place is really cool!"
+
+
+             "d": {
+                      "en": "This place is really cool!",
+                      "fi": "Ei paskempi paikka!"
+                    }
+
+   ad
+
+      Optional alternative descriptions, if any.  The value should be an
+      array of description objects, where each object should have the
+      field "d" for the description (as above) and "s" for the source of
+      the alternate description.
+
+
+   rn
+
+      This optional attribute enables building relations between
+      different items. The value of the "rn" attribute should be a list.
+
+      Each entry in the list should be the value of the "n"
+      attribute in some other item in the same dataset.
+
+   rt
+
+      This optional attribute MUST be present when the "rn" attribute is
+      present.  The "rt" attribute describes the type of the
+      relationship.  Since there can be a number of relationships, the
+      value should be a list.  Each list item should be a string that
+      describes a relationship type.  Currently supported relationship
+      types are:
+
+      *  "entranceof"
+
+      *  "entrance"
+
+      *  "sidecaveof"
+
+      *  "sidecave"
+
+      *  "secondaryto": This entity is an alternate/secondary entity
+         that describes something already described by some other
+         entity.  This can be used to represent reports from multiple,
+         alternate sources about the same thing, for instance, when for
+         some reason there is no desire to merge their entity
+         descriptions in other ways.
+
+      *  "secondary": A reverse relationship of the above, i.e., this
+         entity points to another entity that is a secondary entry for
+         this entity.
+
+   alt
+
+      An optional attribute that describes the altitude the location or
+      the highest point in the destination, in meters.
+
+   fz
+
+      Set to true if the coordinates are "fuzzy" to hide the true
+      location for privacy etc. reasons.  Default is false.  This
+      attribute is optional.
+
+   m
+
+      The cave map link URL, if any.  If there's no URL, the attribute
+      SHOULD NOT be specified at all (and SHOULD NOT be set to, e.g.,
+      empty string, although it is RECOMMENDED that software recognises
+      empty strings similarly to missing attributes.
+
+   l
+
+      The length of the cave in meters, if known.  The attribute is
+      optional, and should be left out if no value is known.  The value
+      should be a number and can include a decimal point.
+
+   lc
+
+      If the length is not specified, one can also specify a length
+      category.  This is expressed as a string of the forms "<a", ">a",
+      or "a><b" where a and b are numbers that may include also decimal
+      points.  The numbers represents cave lengths in meters, and
+      express the cave length size category, e.g., cave larger than 50
+      meters long would be represented as ">50".
+
+   h
+
+      The height/vertical difference in the cave in meters, if known.
+      The attribute is optional, and should be left out if no value is
+      known.
+
+   la
+
+      The cave length and height accuracy ("exact" or "approx").  The
+      attribute is optional, and the default value is "approx" if no
+      other value is provided.
+
+   k
+
+      The city/town/county.  In Finland the relevant "kunta" or
+      community should be filled in.  This attribute is mandatory.
+
+   c
+
+      The country.  This attribute is mandatory.
+
+   o
+
+      The continent.  This attribute is mandatory.
+
+   rl
+
+      The "reading list", a list of articles describing visits etc.
+      This can of course be empty, i.e., [], but the attribute itself is
+      mandatory.  The description of what an article object is can be
+      found from Section 5.3.
+
+   s
+
+      The source of the data, if specified.  The source is simply
+      represented as a string.  Note that the source often defaults from
+      whereever the data is being fetched, so typically this does not
+      need to be set unless somehow specifically different from other
+      entries.
+
+5.3.  Article Objects
+
+   Aach article is a JSON record.  The record has the following fields:
+
+   t
+
+      The title.  This attribute is mandatory.
+
+   i
+
+      URL for an image representing the article.  This attribute is
+      optional.  If no image URL known, the attribute should not be
+      specified at all.
+
+   w
+
+      List of people who were there.  This attribute is mandatory.
+
+   y
+
+      Year of visit (as a number).  This attribute is mandatory.
+
+   m
+
+      The month of visit (as a number, between 1-12).  This attribute is
+      mandatory.
+
+   a
+
+      The activity: Caving, Skiing, etc.  This attribute is mandatory.
+
+   sa
+
+      The sub-activity, e.g., within caving sub-activities or cave types
+      are can be Rock, Ice, and so on, wereas within skiing they the
+      sub-activities can be Outdoor, Indoor, Snow, Sand, and so on.
+      This attribute is mandatory.
+
+   p
+
+      Each article may be described by a URL (if available) or by a
+      printed publication such as a book.  The "p" field provides the
+      name of the book and any associated other reference information
+      such as page or section numbers.  If there's a URL for the book
+      itself (not the article in the book), use the field "pu" for that.
+
+   u
+
+      URL for the article.  This attribute is optional.  If no URL is
+      known, the attribute should not be specified at all.
+
+   pu
+
+      URL for a publication that contains the article.  E.g., if there's
+      an article about the topic or place in a book, place the book
+      article here.
+
+   s
+
+      The source of the data, if specified and different from the source
+      of the overall entry.
+
+5.4.  Language Codes
+
+   The following language codes are supported:
+
+   fi Finnish
+
+
+Arkko                   Expires November 2, 2020               [Page 15]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   en English
+
+   se Swedish

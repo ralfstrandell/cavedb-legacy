@@ -1,0 +1,45 @@
+Suomen luolaseuran nettisivuja on uudistettu, ja tässä yhteydessä tuli mieleen, että sivuille olisi kiva saada suomalaisten luolien karttoja. Kansiollinen jpegejä olisi ehkä hieman vanhahtava ratkaisu, ja Jari Arkon kanssa
+jutellessa tultiin siihen tulokseen, että kevyt paikkatietojärjestelmä olisi paikallaan.
+
+
+Systeemi voisi olla ihan samanlainen kuin ruuth.xyz:n kartta, seuraavin pienin muutoksin:
+
+Kun markkeria klikkaa, niin pop-upissa pitäisi näkyä
+
+1) luolan tunniste, nimi ja paikkakunta
+2) pisteen koordinaatit ja koordinaatistojärjestelmä näkyvissä (ja/tai GPX)
+3) hyperlinkki luolakarttaan
+4) hyperlinkki luolan kuvailuun
+
+
+
+ESIMERKKI
+
+  TP125 "Luolavuoren lohkareluola" Turku
+  x=6702,94 y=1570,73 (YKJ) lataa GPX
+  URL1 (Hyperlinkki luolakarttaan)
+  URL2 (Hyperlinkki luolan kuvailuun)
+
+Jari lupasi puukottaa oman systeeminsä suoltamaa JSONia lähemmäs näitä vaatimuksia. Lähinnä siis lisäilee noi URL:it. Esimerkin koordinaatisto on historiallinen. Tää systeemi tietty käyttäisi nykyaikaista kansallista ETRS-TM35FIN tai eurooppalaista ETRS89 (~WGS84) -koordinaatistoa. En huomannut kysyä Jarilta kumpaa, mut näkyy sulla toimivan. Koordinaattien näkyminen siksi, että ne voi naputella omaan gepsiin tai kännykän suunnistusäppiin. Oishan näitä .gpx filejä ja vaikka mitä, mutta jos nyt alkuun jotain suoraviivaista.
+
+
+TARVITTAVAT LISÄOMINAISUUDET
+
+Filtteri:
+Näytä vain kartalliset luolat / Näytä vain kartoittamattomat luolat / Näytä kaikki luolat
+
+Vapaatekstihaku:
+Case1: Haluaisin tietää missä sijaitsee KY54, Hitonharjun Pirunpesä. Tekisin vapaatekstihaun "KY54" tai vaikka "Pirunpesä". Tuloksena sitten kartta missä on vain tuo luola. Lisäksi olisi kiva voida valita: näytä hakutulos/näytä kaikki.
+Case2: zoomailen ympäri karttaa mitä löytyy; olisi kiva nähdä ilmapallojen lisäksi tunnisteet ja/tai nimet (mutta ilmankin pärjää).
+
+
+Sellanen. Mulla olisi aikaa naputella, mutta Java-kursseista on jo aikaa, ja js/php en oo tehnyt yhtään, joten vaikka ois kiva oppia, ni emmä saisi tätä varmaan kasaan kuukaudessa :/
+
+
+ALUSTA
+- Webhotelli: ssh, sftp, git-tuki, PHP, MySql/MariaDB, viidestä sql-kannasta vapaana nyt kaksi.
+- https://www.hostingpalvelu.fi/webhotellit/webhotellien-tekniset-ominaisuudet/
+- Seuran nettisivut on tehty WordPressillä: luolaseura.fi (rinnakkaisdomain caving.fi)
+- Seuralla on myös jäsenrekisteri caving.fi/jasenrekisteri (toimii vain tolla domainilla)
+-	se on myös aikamoinen tietoturvakatastrofi, sql-kysely evaluoidaan, ja emailia ei oo siistitty. Jne jne.
+- Kartta ois kiva saada mukaan WordPressillä tehdyille nettisivuille. Jos ei muuten, ni sitte iframeen.

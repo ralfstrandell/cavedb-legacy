@@ -1,0 +1,603 @@
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.
+
+   Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+
+
+Arkko                   Expires November 2, 2020                [Page 1]
+Internet-Draft                Activity JSON                     May 2020
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Normative Language  . . . . . . . . . . . . . . . . . . . . .   3
+   3.  Goals . . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   4.  Modelling Activities  . . . . . . . . . . . . . . . . . . . .   4
+   5.  Generation 2 Format . . . . . . . . . . . . . . . . . . . . .   9
+     5.1.  Features  . . . . . . . . . . . . . . . . . . . . . . . .  10
+     5.2.  Properties  . . . . . . . . . . . . . . . . . . . . . . .  10
+     5.3.  Article Objects . . . . . . . . . . . . . . . . . . . . .  14
+     5.4.  Language Codes  . . . . . . . . . . . . . . . . . . . . .  15
+   6.  Generation 1 Format . . . . . . . . . . . . . . . . . . . . .  16
+   7.  Generation 0 Format . . . . . . . . . . . . . . . . . . . . .  17
+   8.  Compatibility . . . . . . . . . . . . . . . . . . . . . . . .  17
+   9.  Character Set . . . . . . . . . . . . . . . . . . . . . . . .  18
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  18
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  18
+   Appendix A.  Contributors . . . . . . . . . . . . . . . . . . . .  19
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
+
+1.  Introduction
+
+   JavaScript Object Notation (JSON) [RFC8259] is a popular format used
+   in web applications.  GeoJSON [RFC7946] [GeoJSON] is a format for
+   encoding a variety of geographic data structures using JSON.
+
+Arkko                   Expires November 2, 2020                [Page 2]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   Activity JSON can be directly supplied to a wide variety of software
+   that accepts GeoJSON.
+
+2.  Normative Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  Goals
+
+   There are many tools and formats to manipulate, collect, store, and
+   display collections of points or other geographic objects.  Formats
+   for information relating to this (such as [RFC7946] or [KML]) are
+   prior art and not something that needs to be replicated.
+
+   an extension of GeoJSON properties
+
+
+Arkko                   Expires November 2, 2020                [Page 3]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   It should also be noted that defining a data format is just about
+   defining a data format, and it is not a solution for all other
+   problems.  For instance, the following are outside the scope of the
+   sharing data format and therefore non-goals for this effort:
+
+   o  Representing media about particular activities.  This work takes
+      the approach that all substantial information is merely a
+      reference rather than the data itself.
+
+   o  Access control to non-public information.The format is best suited
+      for bulk transfer of public data (with the occasional obfuscated
+      location).
+
+4.  Modelling Activities
+
+   First off, there's a philosophical question of whether we are
+   describing real-world entities or their exploration.  We've chosen to
+   model everything as visits or exploration, leaving some coordinates,
+
+
+
+Arkko                   Expires November 2, 2020                [Page 4]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+   descriptions, articles and maps as a record of the activity.
+
+   Nevertheless, we've chosen to structure the model around the
+   locations, in line with GeoJSON.  Each activity, report, participant
+   list, cave map, etc. is hanging off the location, rather than being
+   an independent entity that has locations.
+
+   In great amounts, such additional information can become confusing,
+   however.  We've chosen to enable the model to show relationships,
+   such as a mountaintop having a relation to the ski resort.  Or a side
+   peak having a relationship to the main peak of a mountain.  This
+   additional information can then be chosen to be used or displayed by
+   software or ignored, depending on the needs of the application, the
+   granularity of the map being shown, etc.
+
+   The distinction between a main attraction and side ones is perhaps
+   more relevant for caving.  Where there are caves there are often
+   several in a group, or small side caves accompany a larger cave.  And
+   even for a large cave itself, there may be multiple entrances.
+
+   In this version of the specification, the supported activities and
+   their sub-activities are as follows:
+
+
+Arkko                   Expires November 2, 2020                [Page 5]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   Caving
+
+      The sub-activities consist of a number sub-attributes that can be
+      combined to represent a detailed activity and environment.
+
+      The sub-activities can represent the following aspects.  Different
+      aspects can appear in an orthogonal manner, e.g., you could be
+      diving while visiting an ice cave.  Not all combinations make
+      sense, of course, but in general one can combine a number of
+      different sub-activities in one experience.
+
+      Environment
+
+         Rock, Ice, Man-made, and Other-material.
+
+         Rock-Granite, Rock-Limestone, Rock-Sandstone,
+         Rock-Marble, Rock-Volcanic, and Rock-Other.
+
+         Morphology-Crack, Morphology-Boulders, Morphology-Karst,
+         Morphology-Volcanic, Morphology-Erosion, and Morphology-Other.
+
+      Caving method
+
+         None, Basic, SRT, Swimming, Boating, Diving, Digging, and Skiing.
+         More than one of these may appear in a single trip.
+
+      Associated activities
+
+
+
+Arkko                   Expires November 2, 2020                [Page 6]
+Internet-Draft                Activity JSON                     May 2020
+
+
+         Surveying, Researching, Training, Studying, Social,
+         Equipment, Media, and Other.
+
+      Independent characteristics
+
+         You may be visiting a show cave tour, if so, you can use the
+         sub-activity tag "Showtour".
+
+   Climbing
+
+      The sub-activities are Mountain, Rock, Ice, Wall, and Volcanoes.
+
+   Diving
+
+      There are no sub-activities.
+
+Arkko                   Expires November 2, 2020                [Page 7]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   Swimming
+
+      Indoor, Outdoor, Underground, Water, Ice.
+
+   Urban-exploration
+
+      The sub-activities are Tunnels, Buildings, Ruins, Bunkers,
+      Quarries, Industrial, Silos, Ski-lifts, Landfills, Castles,
+      Vehicles, Trenches, Memorial, Historic-sites, Bridges, Skating-
+      rinks, Amusement-parks, Airports, Catacombs, Railways,
+      Smokestacks, Towers, Prisons, Harbours, and Military.
+
+Arkko                   Expires November 2, 2020                [Page 8]
+Internet-Draft                Activity JSON                     May 2020
+
+
+
+5.  Generation 2 Format
+
+   The format is a specialization of GeoJSON.  Every Activity JSON
+   object is also a valid GeoJSON object, but has some extra properties
+   to carry the information that is needed to describe the activities.
+
+   For example, an empty file contains just:
+
+             {
+               "type": "FeatureCollection",
+               "features": []
+             }
+
+   Here's an example of a file with just one entry:
+
+     {
+       "type": "FeatureCollection",
+       "features": [
+           {
+             "type":
+                "Feature",
+             "geometry":
+                { "type": "Point",
+                  "coordinates": [60.30145486, 24.62792567] },
+             "properties": {
+               "n": "Kattilajaerven iso lippaluola, Nuuksio, Espoo",
+               "m": "https://example.com/cavemap-kattilajarvi.pdf",
+               "l": 9.3,
+               "la": "exact",
+               "k": "Espoo",
+               "c": "Finland",
+               "o": "Europe",
+               "rl": [{ "t": "Kattilajaervi roof caves",
+                        "i": "https://example.com/a-picture.jpg",
+                        "w": ["Jari"],
+                        "y": 2020,
+                        "m": 5,
+                        "a": ["Caving"],
+                        "sa": ["Rock"],
+                        "u": "https://example.com/an-article.html" }
+                     ]
+              }
+           }
+       ]
+     }
+
+
+
+
+Arkko                   Expires November 2, 2020                [Page 9]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+5.1.  Features
+
+   In this version of the specification, only features of the type
+   "Point" are allowed.
+
+5.2.  Properties
+
+   The properties described in a GeoJSON file are as follows:
+
+   n
+
+      The name of the place.  By convention the last item of the name
+      (after last comma) should be city name.  Mandatory.
+
+   an
+
+      This optional field allows listing alternative names, should the
+      place have several names or several alternative spellings of the
+      same name.  The value, if present, should be an array of strings
+      in the same format as in the "n" field.
+
+   lat, lon
+
+      The coordinates, in WGS84 format.  Mandatory.
+
+   ac
+
+      In some cases there are alternative coordinates for some reason,
+      perhaps different measurements or different entrances or different
+      location within a larger entity.  The "ac" field can be used to
+      carry these coordinates.  Its value should be an array of records,
+      with each record having the "lat" and "lon" fields.  The "ac"
+      field is optional.
+
+   d
+
+      Free-form text description of the location.  Optional.  Note that
+      this SHOULD NOT be used to write long stories about the location,
+      but rather a line or two about it.  The articles and URLs
+      referenced from the entry are the right place to write full
+      descriptions.  But the short description may be displayed by tools
+      when hovering over the location by mouse, etc.
+
+      The text itself can be in two forms, either simply the text as is.
+      In that case there is only one text available, and it is in
+      whatever language it happens to be.  An example:
+
+             "d": "This place is really cool!"
+
+
+
+Arkko                   Expires November 2, 2020               [Page 10]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+      Alternatively, the text may be a record with two-letter language
+      codes representing language versions.  See Section 5.4 for the
+      available language code designations.
+
+      Here is an example:
+
+             "d": {
+                      "en": "This place is really cool!",
+                      "fi": "Ei paskempi paikka!"
+                    }
+
+   ad
+
+      Optional alternative descriptions, if any.  The value should be an
+      array of description objects, where each object should have the
+      field "d" for the description (as above) and "s" for the source of
+      the alternate description.
+
+   rn
+
+      This optional attribute enables building relations between
+      different items.  The "rn" attribute identifies another entity in
+      the same dataset that there is a special relationship to.  The
+      value of the "rn" attribute should be a list, with one list
+      element for each different relationship that the item is involved
+      in.  By default, items do not have relationships, and in this case
+      the list can be empty or omitted entirely.
+
+      Each entry in the list should be a string, the name of the place
+      where there's a relationship to, i.e., the value of the "n"
+      attribute in some other item in the same dataset.  The "rt"
+      attribute provides the type of this relationship.
+
+   rt
+
+      This optional attribute MUST be present when the "rn" attribute is
+      present.  The "rt" attribute describes the type of the
+      relationship.  Since there can be a number of relationships, the
+      value should be a list.  Each list item should be a string that
+      describes a relationship type.  Currently supported relationship
+      types are:
+
+      *  "entranceof": This entity is another entrance to the same cave
+         as described in the entity referred to.
+
+      *  "entrance": A reverse relationship of the above, i.e., this
+         entity points to another entity that represents another
+         entrance to this cave.
+
+
+
+Arkko                   Expires November 2, 2020               [Page 11]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+      *  "sidecaveof": This entity is another (side) cave of the main
+         cave described in the entity referred to.
+
+      *  "sidecave": A reverse relationship of the above, i.e., this
+         entity points to another entity is a side cave of this cave.
+
+      *  "secondaryto": This entity is an alternate/secondary entity
+         that describes something already described by some other
+         entity.  This can be used to represent reports from multiple,
+         alternate sources about the same thing, for instance, when for
+         some reason there is no desire to merge their entity
+         descriptions in other ways.
+
+      *  "secondary": A reverse relationship of the above, i.e., this
+         entity points to another entity that is a secondary entry for
+         this entity.
+
+      *  "partof": This entity is somehow otherwise part of the entity
+         referred to.
+
+      *  "part": A reverse relationship of the above, i.e., this entity
+         points to another entity that is a part of this entity.
+
+   alt
+
+      An optional attribute that describes the altitude the location or
+      the highest point in the destination, in meters.
+
+   aa
+
+      An optional attribute that describes alternative altitudes (if
+      there are several measurements or different locations within the
+      place).
+
+   fz
+
+
+
+Arkko                   Expires November 2, 2020               [Page 12]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+      Set to true if the coordinates are "fuzzy" to hide the true
+      location for privacy etc. reasons.  Default is false.  This
+      attribute is optional.
+
+   m
+
+      The cave map link URL, if any.  If there's no URL, the attribute
+      SHOULD NOT be specified at all (and SHOULD NOT be set to, e.g.,
+      empty string, although it is RECOMMENDED that software recognises
+      empty strings similarly to missing attributes.
+
+   am
+
+      If there are several maps, additional links MAY be provided in
+      this optional attribute.  Its value should be an array of URL
+      strings.
+
+   l
+
+      The length of the cave in meters, if known.  The attribute is
+      optional, and should be left out if no value is known.  The value
+      should be a number and can include a decimal point.
+
+   lc
+
+      If the length is not specified, one can also specify a length
+      category.  This is expressed as a string of the forms "<a", ">a",
+      or "a><b" where a and b are numbers that may include also decimal
+      points.  The numbers represents cave lengths in meters, and
+      express the cave length size category, e.g., cave larger than 50
+      meters long would be represented as ">50".
+
+   h
+
+      The height/vertical difference in the cave in meters, if known.
+      The attribute is optional, and should be left out if no value is
+      known.
+
+   la
+
+      The cave length and height accuracy ("exact" or "approx").  The
+      attribute is optional, and the default value is "approx" if no
+      other value is provided.
+
+   k
+
+      The city/town/county.  In Finland the relevant "kunta" or
+      community should be filled in.  This attribute is mandatory.
+
+
+
+Arkko                   Expires November 2, 2020               [Page 13]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   c
+
+      The country.  This attribute is mandatory.
+
+   o
+
+      The continent.  This attribute is mandatory.
+
+   rl
+
+      The "reading list", a list of articles describing visits etc.
+      This can of course be empty, i.e., [], but the attribute itself is
+      mandatory.  The description of what an article object is can be
+      found from Section 5.3.
+
+   s
+
+      The source of the data, if specified.  The source is simply
+      represented as a string.  Note that the source often defaults from
+      whereever the data is being fetched, so typically this does not
+      need to be set unless somehow specifically different from other
+      entries.
+
+5.3.  Article Objects
+
+   Aach article is a JSON record.  The record has the following fields:
+
+   t
+
+      The title.  This attribute is mandatory.
+
+   i
+
+      URL for an image representing the article.  This attribute is
+      optional.  If no image URL known, the attribute should not be
+      specified at all.
+
+   w
+
+      List of people who were there.  This attribute is mandatory.
+
+   y
+
+      Year of visit (as a number).  This attribute is mandatory.
+
+   m
+
+
+
+
+
+Arkko                   Expires November 2, 2020               [Page 14]
+
+Internet-Draft                Activity JSON                     May 2020
+
+
+      The month of visit (as a number, between 1-12).  This attribute is
+      mandatory.
+
+   a
+
+      The activity: Caving, Skiing, etc.  This attribute is mandatory.
+
+   sa
+
+      The sub-activity, e.g., within caving sub-activities or cave types
+      are can be Rock, Ice, and so on, wereas within skiing they the
+      sub-activities can be Outdoor, Indoor, Snow, Sand, and so on.
+      This attribute is mandatory.
+
+   p
+
+      Each article may be described by a URL (if available) or by a
+      printed publication such as a book.  The "p" field provides the
+      name of the book and any associated other reference information
+      such as page or section numbers.  If there's a URL for the book
+      itself (not the article in the book), use the field "pu" for that.
+
+   u
+
+      URL for the article.  This attribute is optional.  If no URL is
+      known, the attribute should not be specified at all.
+
+   pu
+
+      URL for a publication that contains the article.  E.g., if there's
+      an article about the topic or place in a book, place the book
+      article here.
+
+   s
+
+      The source of the data, if specified and different from the source
+      of the overall entry.
+
+5.4.  Language Codes
+
+   The following language codes are supported:
+
+   fi Finnish
+
+
+Arkko                   Expires November 2, 2020               [Page 15]
+Internet-Draft                Activity JSON                     May 2020
+
+
+   en English
+
+   se Swedish
+
+Arkko                   Expires November 2, 2020               [Page 17]
+Internet-Draft                Activity JSON                     May 2020
+
+
+10.  References
+
+10.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC7946]  Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S.,
+              and T. Schaub, "The GeoJSON Format", RFC 7946,
+              DOI 10.17487/RFC7946, August 2016,
+              <https://www.rfc-editor.org/info/rfc7946>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
+
+10.2.  Informative References
+
+   [GeoJSON]  GeoJSON, "GeoJSON", website https://geojson.org, May 2020.
+
+   [KML]      Wilson, T., "OGC KML", OGC 07-147r2 version 2.2.20, April
+              2008.
