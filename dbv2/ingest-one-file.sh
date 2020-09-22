@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+# NOTE: bash is required instead of Bourne shell because of arithmetics: "let" and (( expr )). Nicer than running expr...
 
 # Version 2.0 Date 2020-08-06 Author Ralf Strandell
 
@@ -49,10 +50,10 @@
 	SUOMEN_LUOLAT="Suomen luolat. Kesäläinen, Kejonen, Kielosto, Salonen, Lahti. 2015. Salakirjat. ISBN 978-952-5774-80-1"
 
 # SETTINGS
-	DEBUG="false"	# or true
+	DEBUG="false"	# or true	"set -x" in loop.
+	VERBOSE="false" # or true	see a bit more what's being done while importing cave records.
 
 # FUNCTIONS
-
 db_coord_transform_ykj_wgs84 () {
 
 	# READ: http://koivu.luomus.fi/projects/coordinateservice/info/
@@ -65,7 +66,6 @@ db_coord_transform_ykj_wgs84 () {
 	WGS84_LON=`echo "$REPLY" | grep east | sed 's/^.*<east>//;s/<\/east>$//'`
 	echo "$WGS84_LAT $WGS84_LON"
 }
-
 db_add_records () {
 
 	DB_BAK="${DB}.bak"		# We always want a backup
@@ -112,10 +112,33 @@ db_add_records () {
 
 }
 
-split (classString) {
+split () {
+
+	# Read arguments
+	classString="$1";
+	subactivitylist="$2";
 
 	# Remove commas and spaces, then prepend letters with spaces, then remove the first space on the line
-	classes_spaced=`echo "$classString" | sed -e 's/[, ]//g' -e 's/[a-zA-Z]/ &/g' -e 's/^ //'
+	classes_spaced=`echo "$classString" | sed -e 's/[, ]//g' -e 's/[a-zA-Z]/ &/g' -e 's/^ //'`
+
+        # INIT - ACTIVITIES
+	#	None, Basic, SRT, Boating, Swimming, Diving, Digging
+	None=false;
+	Basic=false;
+	SRT=false;
+	Boating=false;
+	Swimming=false;
+	Diving=false;
+	Digging=false;
+
+	# Detect existing activities
+	echo "$subactivitylist" | grep -q 'None' && None=true;
+	echo "$subactivitylist" | grep -q 'Basic' && Basic=true;
+	echo "$subactivitylist" | grep -q 'SRT' && SRT=true;
+	echo "$subactivitylist" | grep -q 'Boating' && Boating=true;
+	echo "$subactivitylist" | grep -q 'Swimming' && Swimming=true;
+	echo "$subactivitylist" | grep -q 'Diving' && Diving=true;
+	echo "$subactivitylist" | grep -q 'Digging' && Digging=true;
 
 
 	# INIT - TYPES OF SURROUNDING MATERIAL
@@ -157,7 +180,9 @@ split (classString) {
 	Shelter=false;		# lippaluola
 	Karst=false;		# karstiluola
 	Tunnel=false;		# tunneli
-	Blister=false;		# onkalo, kupla
+	Vugg=false;		# kideonkalo
+	Blister=false;		# vulkaaninen onkalo (eri kuin kideonkalo)
+	Earthcave=false;	# maaluola
 	Tafone=false;		# tafonionkalo
 
 	# INIT - CLASSES 2 (genetic)
@@ -174,18 +199,33 @@ split (classString) {
 	GroundwaterPiping=false;# erosion
 	Excavated=false;	# at least partially
 
+	# DETECT CERTAIN ROCK TYPES IN JSON ALREADY
+	echo "$subactivitylist" | grep -q 'Rock' && Rock=true;
+	echo "$subactivitylist" | grep -q 'Rock-Gypsum' && Gypsum=true;
+
 	# PROCESS CLASS STRING
-	set $classString
-	counter=$#
+	# 	Remove commas and spaces and "ja" words,
+	#	then prepend letters with spaces,
+	#	then remove the first space on the line
+	#	and finally process its contents
+
+	classes_spaced=`echo "$classString" | sed -e 's/ ja //g' -e 's/[, ]//g' -e 's/[a-zA-Z]/ &/g' -e 's/^ //'`
+	if [ "$classes_spaced" != "" ]
+	then
+		set $classes_spaced
+		counter=$#
+	else
+		counter=0
+	fi
 	while [ $counter -gt 0 ]
 	do
 		c="$1";
-		shift;
+		if [ $counter -gt 1 ]; then shift; fi	# don't shift over the edge
 		let counter--;
 
 		case "$c" in
 		#	MATERIAL   SUBTYPE		MORPHOLOGY      GENETICS          		COMMENT
-		A|a)	Rock=true; NSNV=true; 		Blister=true;	Primary=true;;			# blister cave (igneous origin!)
+		A|a)	Rock=true; NSNV=true; 		Vugg=true;	Primary=true;;			# blister cave (igneous origin!)
 		B|b)	Rock=true; 			Crevice=true;	Tectonic=true;;			# tectonic crevice caves
 		C|c)	Rock=true;			Karst=true;	Dissolution=true;;		# karst caves
 		C1|c1)	Rock=true; Carbonate=true;	Karst=true;	Dissolution=true;;		# same
@@ -197,7 +237,7 @@ split (classString) {
 		D3|d3)	Rock=true;					Weathering=true;;		# other weathering caves
 		E|e)	Rock=true;			Crevice=true;	Glacial=true;;			# glacial crevice caves
 		F|f)	Rock=true;			Boulders=true;	Glacial=true;;			# glacial boulder caves
-		G|g)	Other=true; Moraine=true;	Blister=true;	Glacial=true;;			# glacial earth caves (ice melting)
+		G|g)	Other=true; Moraine=true;	Earthcave=true;	Glacial=true;;			# glacial earth caves (ice melting)
 		H|h)	Rock=true;					Erosion=true; Shore=true;;	# cave caused by shore action
 		I|i)	Rock=true;			Boulders=true;;					# Tectonic/Glacial/Weathering (fi: vuorenvieremät)
 		I1|i1)	Rock=true;			Boulders=true;	Tectonic=true;;			# (neo)Tectonic talus caves
@@ -222,17 +262,72 @@ split (classString) {
 		esac
 	done
 
+	# Next map these to the psgeo values best we can! Convert only EXISTING data, thus limited.
 	psgeotags="";
-	if [ "Rock" == "true" ]; then psgeotags="${psgeotags}\"Rock\","; fi
-	# MANY MORE NEED TO BE INCLUDED FROM ABOVE
+
+	# 1 Write activities
+		if [ "$None" == "true" ]; 	then 	psgeotags="${psgeotags}\"None\","; 		fi;
+		if [ "$Basic" == "true" ]; 	then 	psgeotags="${psgeotags}\"Basic\","; 		fi;
+		if [ "$SRT" == "true" ]; 	then 	psgeotags="${psgeotags}\"SRT\","; 		fi;
+		if [ "$Boating" == "true" ]; 	then 	psgeotags="${psgeotags}\"Boating\","; 		fi;
+		if [ "$Swimming" == "true" ]; 	then 	psgeotags="${psgeotags}\"Swimming\","; 		fi;
+		if [ "$Diving" == "true" ]; 	then 	psgeotags="${psgeotags}\"Diving\","; 		fi;
+		if [ "$Digging" == "true" ]; 	then 	psgeotags="${psgeotags}\"Digging\","; 		fi;
+
+
+	# 2 Write type of surrounding material (environment)
+		if [ "$Rock" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock\","; 		fi;
+		if [ "$Glacier" == "true" ]; 	then	psgeotags="${psgeotags}\"Glacier\","; 		fi;
+		if [ "$Other" == "true" ]; 	then 	psgeotags="${psgeotags}\"Material-Other\","; 	fi;
+		if [ "$ManMade" == "true" ]; 	then	psgeotags="${psgeotags}\"Man-Made\","; 		fi;		
+
+	# 3 Write detailed material type (rock type)
+		# Sedimentary rocks
+		if [ "$Sandstones" == "true" ]; then 	psgeotags="${psgeotags}\"Rock-Sandstone\","; 	fi;
+		if [ "$Mudrocks" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Mudrock\","; 	fi;
+		if [ "$Carbonate" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Limestone\","; 	fi;
+		if [ "$Sulfate" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Gypsum\","; 	fi;
+		if [ "$Halite" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Salt\","; 	fi;
+		# Igneous and metamorphic rocks
+		if [ "$Volcanic" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Volcanic\","; 	fi;		#1
+		if [ "$NSNV" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Granite\","; 	fi;
+		if [ "$Marble" == "true" ]; 	then 	psgeotags="${psgeotags}\"Rock-Marble\","; 	fi;
+
+	# Cave classification by form (morphology-)
+		if [ "$Volcanic" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Volcanic\","; 	fi;	#2
+		if [ "$Boulders" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Boulders\","; 	fi;
+		if [ "$Crevice" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Crack\",";		fi;
+		if [ "$Shelter" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Shelter\",";	fi;
+		# if [ "$Tunnel" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Tunnel\",";		fi;
+		if [ "$Karst" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Karst\",";		fi;
+		if [ "$Vugg" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Crystallization\",";fi;
+		if [ "$Growth" == "true" ]; 	then 	psgeotags="${psgeotags}\"Morphology-Organic\","; 	fi;
+
+	# Genetic classification of caves (morphology-)
+		# Recorded as Morphology-* because of limitations of psgeo
+		if [ "$Weathering" == "true" ]; then	psgeotags="${psgeotags}\"Morphology-Weathering\",";	fi;
+		if [ "$Erosion" == "true" ]; 	then	psgeotags="${psgeotags}\"Morphology-Erosion\",";	fi;
+		if [ "$Erosion" == "false" ];
+		then
+			if [ "$Shore" == "true" -o "$Fluvial" == "true" -o "$GroundwaterPiping" == "true" ]
+			then
+				psgeotags="${psgeotags}\"Morphology-Erosion\","
+			fi
+		fi
+		if [ "$Freezing" == "true" ]; 	then	psgeotags="${psgeotags}\"Ice\",";			fi;
+
+        # Not yet supported by psgeo:	Morphology-Shelter, Morphology-Tunnel, Morphology-Tafone, Morphology-Blister, Earthcave
+	# Not supported by psgeo:	Genetical classification and morphological classification separated.
+	# No need to record:		Primary cave, Rock-Other, Morphology-Other, Rock-Unknown, Morphology-Unknown.
+	# Genetic classes non used:	Tectonic, Dissolution, Glacial, Excavated
+
+	psgeotags=`echo "$psgeotags" | sed 's/,$//'`
+
+	# Return result
+	echo "$psgeotags";
 }
 
-
-# TURN DEBUGGING ON/OFF
-	# VERBOSE=true; # debug
-	VERBOSE=false;
-	# For debugging purposes we recommend "sh -x ./ingest-one-file.sh readable"
-
+	
 # DEFINE INPUT AND OUTPUT FILE NAMES
 	DATA="./import.txt"
 	if [ "$1" != "" ]; then DATA="$1"; fi
@@ -310,6 +405,7 @@ do
 	set $length; test "$1" == "Arvio" && la="approx" || la="exact";
 	length=$2
 
+
 	# NUMBER CHECK (INTEGER OR DECIMAL)
 	if [[ $x =~ ^-{0,1}[0-9]+(\.[0-9]+){0,1}$ ]] 
 	then
@@ -354,23 +450,16 @@ do
 		fi
 	fi
 
+
 	# PROCESS PEOPLE
 	#	CSV to JSON LIST: A,B, C,D , E ,F -> ["A","B","C","D","E","F"]
 	#	heading [" and trailing "]
 	#	change / *, */","/
 	reporters='["'`echo "$reporters" | sed 's/ *, */","/g'`'"]'
+	#	"Name One","Name Two", "Name Three"
 
 	# ANONYMIZE
-	# case "$reporter" in
-	#	"Dare Talvitie")	reporter="DT" ;;
-	#	"Johan Moraal")		reporter="JM" ;;
-	#	"Ralf Strandell")	reporter="RS" ;;
-	#	"Tommi Vuorinen")	reporter="TV" ;;
-	#	"Velma Aho")		reporter="VA" ;;
-	#	"")			reporter="Tuntematon" ;;
-	#	*) ;;
-	#esac	
-	reporters=`echo "$reporters" | LC_ALL=C sed -e 's/Dare Talvitie/DT/' -e 's/Johan Moraal/JM/' -e 's/Ralf Strandell/RS/' -e 's/Tommi Vuorinen/TV/' -e 's/Velma AHo/VA/'`
+	reporters=`echo "$reporters" | LC_ALL=C sed -e 's/[a-z] //g' -e 's/[a-z]//g'` # just keep capital letters
 
 	# cave = "name1 / name 2 / name3, city [id] {class,class,class}"
 
@@ -472,6 +561,10 @@ do
 			exit 1
 		fi
 
+
+	# GENERATE SUBACTIVITY LIST BASED ON PREVIOUS DATA AND FINNISH CAVE CLASSIFICATION
+		subactivitylist=`split "$class" "$subactivitylist"`
+
 	# GENERATE PUBLICATION REFERENCE FOR FINNISH CAVES
 		if [ "$cid" != "" ]	# the cave has an id: Suomen luolat / Itä-Savon luolat
 		then
@@ -483,7 +576,7 @@ do
 				"w": ["Aimo Kejonen"],
 				"y": 2015,
 				"a": ["'"${activity}"'"],
-				"sa": ['${subactivitylist}'],
+				"sa": [['${subactivitylist}']],
 				"p": "'"${SUOMEN_LUOLAT}"'" }';
 				year=2015 ;;
 			SA|EN|RA|SU|PU|RU)			# Itä-Savon luolat blogi
@@ -606,7 +699,7 @@ EOKML
 				"w": ${reporters},
 				"y": ${year},
 				"a": ["${activity}"],
-				"sa": [${subactivitylist}],
+				"sa": [[${subactivitylist}]],
 				"u": "${url}" } ${LITTERATURE} ]
 			$MAPINFO
 			}

@@ -1,0 +1,19 @@
+000025.0	BHD3           	Finland        	   AL5	Löfvingsgrottan                        
+000013.0	EH             	Finland        	  AL16	Orrkärrsgrottan                        
+000012.0	BE             	Finland        	  AL17	Båxö Rövarbergsstugan                
+000010.0	BH             	Finland        	  AL15	Kasbergsgrottan                         
+000008.0	BE             	Finland        	   AL9	Ingby Trollstugan                       
+000007.7	BD3H           	Finland        	   AL3	Djupvikskyrkan                          
+000007.0	BEH            	Finland        	  AL18	Kloddstugan                             
+000006.0	D3H            	Finland        	   AL8	Önningeby II                           
+000006.0	BE             	Finland        	   AL6	Borgögrottan                           
+000004.0	ABH            	Finland        	   AL1	Hullberga grottor I och II              
+000004.0	ABD3           	Finland        	  AL14	Enbolstadbergenin Herrdalsgrottan       
+000003.6	D3H            	Finland        	   AL7	Önningeby I                            
+000003.0	BD3H           	Finland        	  AL11	Bistorpin luola                         
+000002.9	A              	Finland        	  AL20	Trollskärs grotta                      
+000002.5	A              	Finland        	  AL19	Högskärsgrotta                        
+000002.0	ED3H           	Finland        	  AL10	Söderbygrottan                         
+000002.0	A              	Finland        	  AL21	Brunnskobbin luola                      
+000001.0	AD2D3KH        	Finland        	  AL13	Jättehandtaget                         
+

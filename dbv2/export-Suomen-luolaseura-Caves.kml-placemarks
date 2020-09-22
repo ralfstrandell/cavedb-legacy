@@ -1,0 +1,127 @@
+
+<Placemark>
+	<name>Hullberga grottor I och II</name>
+	<description>Luolan tunniste AL1. Geneettis-morfologinen luokitus {ABH}. Sota-aikojen pakopaikkoja ja kalastajien leiripaikkoja, molemmat 4-5x3m</description>
+	<Point>
+		<coordinates>20.872400687,60.531973617,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Djupvikskyrkan</name>
+	<description>Luolan tunniste AL3. Geneettis-morfologinen luokitus {BD3H}. Luola-aukkohämähäkki runsaslukuinen</description>
+	<Point>
+		<coordinates>19.831062119,60.400175482,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Löfvingsgrottan</name>
+	<description>Luolan tunniste AL5. Geneettis-morfologinen luokitus {BHD3}.</description>
+	<Point>
+		<coordinates>19.836460783,60.391246770,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Borgögrottan</name>
+	<description>Luolan tunniste AL6. Geneettis-morfologinen luokitus {BE}.</description>
+	<Point>
+		<coordinates>19.679719289,60.181351290,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Önningeby I</name>
+	<description>Luolan tunniste AL7. Geneettis-morfologinen luokitus {D3H}. Pilari keskellä.</description>
+	<Point>
+		<coordinates>20.034121207,60.128936173,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Önningeby II</name>
+	<description>Luolan tunniste AL8. Geneettis-morfologinen luokitus {D3H}. Pilari keskellä.</description>
+	<Point>
+		<coordinates>20.037012501,60.128508433,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Ingby Trollstugan</name>
+	<description>Luolan tunniste AL9. Geneettis-morfologinen luokitus {BE}.</description>
+	<Point>
+		<coordinates>19.945665212,60.171795683,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Söderbygrottan</name>
+	<description>Luolan tunniste AL10. Geneettis-morfologinen luokitus {ED3H}. 2x4m</description>
+	<Point>
+		<coordinates>20.075180204,60.063524560,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Bistorpin luola</name>
+	<description>Luolan tunniste AL11. Geneettis-morfologinen luokitus {BD3H}. 2-4x3m</description>
+	<Point>
+		<coordinates>20.131138307,60.086523816,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Jättehandtaget</name>
+	<description>Luolan tunniste AL13. Geneettis-morfologinen luokitus {AD2D3KH}. 1x4m</description>
+	<Point>
+		<coordinates>20.053208091,60.316042785,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Enbolstadbergenin Herrdalsgrottan</name>
+	<description>Luolan tunniste AL14. Geneettis-morfologinen luokitus {ABD3}.</description>
+	<Point>
+		<coordinates>19.990979789,60.332998075,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Kasbergsgrottan</name>
+	<description>Luolan tunniste AL15. Geneettis-morfologinen luokitus {BH}. 10x20m</description>
+	<Point>
+		<coordinates>20.057538678,60.347847844,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Orrkärrsgrottan</name>
+	<description>Luolan tunniste AL16. Geneettis-morfologinen luokitus {EH}.</description>
+	<Point>
+		<coordinates>20.203685516,60.296744818,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Båxö Rövarbergsstugan</name>
+	<description>Luolan tunniste AL17. Geneettis-morfologinen luokitus {BE}.</description>
+	<Point>
+		<coordinates>20.106931243,60.396208559,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Kloddstugan</name>
+	<description>Luolan tunniste AL18. Geneettis-morfologinen luokitus {BEH}.</description>
+	<Point>
+		<coordinates>20.112304742,60.318784381,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Högskärsgrotta</name>
+	<description>Luolan tunniste AL19. Geneettis-morfologinen luokitus {A}.</description>
+	<Point>
+		<coordinates>20.435185067,60.295238524,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Trollskärs grotta</name>
+	<description>Luolan tunniste AL20. Geneettis-morfologinen luokitus {A}.</description>
+	<Point>
+		<coordinates>20.356641231,60.335270839,0</coordinates>
+	</Point>
+</Placemark>
+<Placemark>
+	<name>Brunnskobbin luola</name>
+	<description>Luolan tunniste AL21. Geneettis-morfologinen luokitus {A}.</description>
+	<Point>
+		<coordinates>20.383939821,60.442924881,0</coordinates>
+	</Point>
+</Placemark>

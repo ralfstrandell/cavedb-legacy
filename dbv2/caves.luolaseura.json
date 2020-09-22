@@ -1,0 +1,456 @@
+{
+	"type": "FeatureCollection",
+	"features":
+[
+{
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.531973617, 20.872400687] }, 
+		"properties": {
+			"n": "Hullberga grottor I och II, Brändö",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL1. Geneettis-morfologinen luokitus {ABH}.  Sota-aikojen pakopaikkoja ja kalastajien leiripaikkoja, molemmat 4-5x3m",
+				"se": "Finsk grott-ID AL1. Finsk genetisk-morfologisk grottklass {ABH}. Mera information på finska.",
+				"en": "Finnish cave ID AL1. Finnish genetic-morphological cave class {ABH}. More information in Finnish." },
+			"la": "exact",
+			"l": 4,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Hullberga grottor I och II",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crack","Morphology-Crystallization","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.400175482, 19.831062119] }, 
+		"properties": {
+			"n": "Djupvikskyrkan, Geta",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL3. Geneettis-morfologinen luokitus {BD3H}.  Luola-aukkohämähäkki runsaslukuinen",
+				"se": "Finsk grott-ID AL3. Finsk genetisk-morfologisk grottklass {BD3H}. Mera information på finska.",
+				"en": "Finnish cave ID AL3. Finnish genetic-morphological cave class {BD3H}. More information in Finnish." },
+			"la": "exact",
+			"l": 7.7,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Djupvikskyrkan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.391246770, 19.836460783] }, 
+		"properties": {
+			"n": "Löfvingsgrottan, Geta",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL5. Geneettis-morfologinen luokitus {BHD3}.",
+				"se": "Finsk grott-ID AL5. Finsk genetisk-morfologisk grottklass {BHD3}.",
+				"en": "Finnish cave ID AL5. Finnish genetic-morphological cave class {BHD3}." },
+			"la": "exact",
+			"l": 25,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Löfvingsgrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.181351290, 19.679719289] }, 
+		"properties": {
+			"n": "Borgögrottan, Hammarland",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL6. Geneettis-morfologinen luokitus {BE}.",
+				"se": "Finsk grott-ID AL6. Finsk genetisk-morfologisk grottklass {BE}.",
+				"en": "Finnish cave ID AL6. Finnish genetic-morphological cave class {BE}." },
+			"la": "exact",
+			"l": 6,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Borgögrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.128936173, 20.034121207] }, 
+		"properties": {
+			"n": "Önningeby I, Jomala",
+			"an": ["Önningeby I", "Backelugnen"],
+			"d": {	"fi": "Luolan tunniste AL7. Geneettis-morfologinen luokitus {D3H}.  Pilari keskellä.",
+				"se": "Finsk grott-ID AL7. Finsk genetisk-morfologisk grottklass {D3H}. Mera information på finska.",
+				"en": "Finnish cave ID AL7. Finnish genetic-morphological cave class {D3H}. More information in Finnish." },
+			"la": "exact",
+			"l": 3.6,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Önningeby I",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.128508433, 20.037012501] }, 
+		"properties": {
+			"n": "Önningeby II, Jomala",
+			"an": ["Önningeby II", "Klapperstens-ugnen"],
+			"d": {	"fi": "Luolan tunniste AL8. Geneettis-morfologinen luokitus {D3H}.  Pilari keskellä.",
+				"se": "Finsk grott-ID AL8. Finsk genetisk-morfologisk grottklass {D3H}. Mera information på finska.",
+				"en": "Finnish cave ID AL8. Finnish genetic-morphological cave class {D3H}. More information in Finnish." },
+			"la": "exact",
+			"l": 6,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Önningeby II",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.171795683, 19.945665212] }, 
+		"properties": {
+			"n": "Ingby Trollstugan, Lemland",
+			"an": ["Ingby Trollstugan", "Ingby Trollkyrkan", "Ingbygrottan"],
+			"d": {	"fi": "Luolan tunniste AL9. Geneettis-morfologinen luokitus {BE}.",
+				"se": "Finsk grott-ID AL9. Finsk genetisk-morfologisk grottklass {BE}.",
+				"en": "Finnish cave ID AL9. Finnish genetic-morphological cave class {BE}." },
+			"la": "exact",
+			"l": 8,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Ingby Trollstugan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.063524560, 20.075180204] }, 
+		"properties": {
+			"n": "Söderbygrottan, Lemland",
+			"an": ["Söderbygrottan", "Västerberget grottan"],
+			"d": {	"fi": "Luolan tunniste AL10. Geneettis-morfologinen luokitus {ED3H}.  2x4m",
+				"se": "Finsk grott-ID AL10. Finsk genetisk-morfologisk grottklass {ED3H}. Mera information på finska.",
+				"en": "Finnish cave ID AL10. Finnish genetic-morphological cave class {ED3H}. More information in Finnish." },
+			"la": "exact",
+			"l": 2,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Söderbygrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.086523816, 20.131138307] }, 
+		"properties": {
+			"n": "Bistorpin luola, Lemland",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL11. Geneettis-morfologinen luokitus {BD3H}.  2-4x3m",
+				"se": "Finsk grott-ID AL11. Finsk genetisk-morfologisk grottklass {BD3H}. Mera information på finska.",
+				"en": "Finnish cave ID AL11. Finnish genetic-morphological cave class {BD3H}. More information in Finnish." },
+			"la": "exact",
+			"l": 3,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Bistorpin luola",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.316042785, 20.053208091] }, 
+		"properties": {
+			"n": "Jättehandtaget, Saltvik",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL13. Geneettis-morfologinen luokitus {AD2D3KH}.  1x4m",
+				"se": "Finsk grott-ID AL13. Finsk genetisk-morfologisk grottklass {AD2D3KH}. Mera information på finska.",
+				"en": "Finnish cave ID AL13. Finnish genetic-morphological cave class {AD2D3KH}. More information in Finnish." },
+			"la": "exact",
+			"l": 1,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Jättehandtaget",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crack","Morphology-Shelter","Morphology-Crystallization","Morphology-Weathering","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.332998075, 19.990979789] }, 
+		"properties": {
+			"n": "Enbolstadbergenin Herrdalsgrottan, Saltvik",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL14. Geneettis-morfologinen luokitus {ABD3}.",
+				"se": "Finsk grott-ID AL14. Finsk genetisk-morfologisk grottklass {ABD3}.",
+				"en": "Finnish cave ID AL14. Finnish genetic-morphological cave class {ABD3}." },
+			"la": "exact",
+			"l": 4,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Enbolstadbergenin Herrdalsgrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crack","Morphology-Crystallization","Morphology-Weathering"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.347847844, 20.057538678] }, 
+		"properties": {
+			"n": "Kasbergsgrottan, Saltvik",
+			"an": ["Kasbergsgrottan", "Väderbergsgrottan"],
+			"d": {	"fi": "Luolan tunniste AL15. Geneettis-morfologinen luokitus {BH}.  10x20m",
+				"se": "Finsk grott-ID AL15. Finsk genetisk-morfologisk grottklass {BH}. Mera information på finska.",
+				"en": "Finnish cave ID AL15. Finnish genetic-morphological cave class {BH}. More information in Finnish." },
+			"la": "exact",
+			"l": 10,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Kasbergsgrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.296744818, 20.203685516] }, 
+		"properties": {
+			"n": "Orrkärrsgrottan, Saltvik",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL16. Geneettis-morfologinen luokitus {EH}.",
+				"se": "Finsk grott-ID AL16. Finsk genetisk-morfologisk grottklass {EH}.",
+				"en": "Finnish cave ID AL16. Finnish genetic-morphological cave class {EH}." },
+			"la": "exact",
+			"l": 13,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Orrkärrsgrottan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.396208559, 20.106931243] }, 
+		"properties": {
+			"n": "Båxö Rövarbergsstugan, Saltvik",
+			"an": ["Båxö Rövarbergsstugan", "Båxögrottan", "Rövarkulan"],
+			"d": {	"fi": "Luolan tunniste AL17. Geneettis-morfologinen luokitus {BE}.",
+				"se": "Finsk grott-ID AL17. Finsk genetisk-morfologisk grottklass {BE}.",
+				"en": "Finnish cave ID AL17. Finnish genetic-morphological cave class {BE}." },
+			"la": "exact",
+			"l": 12,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Båxö Rövarbergsstugan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.318784381, 20.112304742] }, 
+		"properties": {
+			"n": "Kloddstugan, Saltvik",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL18. Geneettis-morfologinen luokitus {BEH}.",
+				"se": "Finsk grott-ID AL18. Finsk genetisk-morfologisk grottklass {BEH}.",
+				"en": "Finnish cave ID AL18. Finnish genetic-morphological cave class {BEH}." },
+			"la": "exact",
+			"l": 7,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Kloddstugan",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Morphology-Crack","Morphology-Erosion"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.295238524, 20.435185067] }, 
+		"properties": {
+			"n": "Högskärsgrotta, Vårdö",
+			"an": [],
+			"d": {	"fi": "Luolan tunniste AL19. Geneettis-morfologinen luokitus {A}.",
+				"se": "Finsk grott-ID AL19. Finsk genetisk-morfologisk grottklass {A}.",
+				"en": "Finnish cave ID AL19. Finnish genetic-morphological cave class {A}." },
+			"la": "exact",
+			"l": 2.5,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Högskärsgrotta",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crystallization"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.335270839, 20.356641231] }, 
+		"properties": {
+			"n": "Trollskärs grotta, Vårdö",
+			"an": ["Trollskärs grotta", "Trollskärsugnen"],
+			"d": {	"fi": "Luolan tunniste AL20. Geneettis-morfologinen luokitus {A}.",
+				"se": "Finsk grott-ID AL20. Finsk genetisk-morfologisk grottklass {A}.",
+				"en": "Finnish cave ID AL20. Finnish genetic-morphological cave class {A}." },
+			"la": "exact",
+			"l": 2.9,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Trollskärs grotta",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crystallization"]],
+				"u": "" }  ]
+			
+			}
+		}
+		, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [60.442924881, 20.383939821] }, 
+		"properties": {
+			"n": "Brunnskobbin luola, Vårdö",
+			"an": ["Brunnskobbin luola", "Brunnskoppankittel"],
+			"d": {	"fi": "Luolan tunniste AL21. Geneettis-morfologinen luokitus {A}.",
+				"se": "Finsk grott-ID AL21. Finsk genetisk-morfologisk grottklass {A}.",
+				"en": "Finnish cave ID AL21. Finnish genetic-morphological cave class {A}." },
+			"la": "exact",
+			"l": 2,
+			"k": "Ahvenanmaa",
+			"c": "Finland",
+			"o": "Europe",
+			"rl": [{ "t": "Brunnskobbin luola",
+				"w": ["AK"],
+				"y": 2020,
+				"a": ["Caving"],
+				"sa": [["Rock","Rock-Granite","Morphology-Crystallization"]],
+				"u": "" }  ]
+			
+			}
+		}
+]
+}
