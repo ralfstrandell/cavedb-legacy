@@ -18,7 +18,6 @@ cat << EOTXT > $CAVEJSON
 {
 	"type": "FeatureCollection",
 	"features":
-	[
 EOTXT
 
 # Write data
@@ -26,7 +25,6 @@ cat $CAVELIST >> $CAVEJSON
 
 # Close
 cat << EOTXT >> $CAVEJSON
-	]
 }
 EOTXT
 

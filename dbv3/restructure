@@ -1,43 +1,46 @@
 #!/bin/bash
 # NOTE: bash is required instead of Bourne shell because of arithmetics: "let" and (( expr )). Nicer than running expr...
 
-# Version 2.0 Date 2020-08-06 Author Ralf Strandell
+# Version 0.1.0 Date 2020-09-22 Author Ralf Strandell
 
-# This script takes a human readable cave report text file import.txt (version 2) and produces JSON
-# either as one liners or in human readable(ish) format.
-
-# TO DO
-#	publication fields p and pu
-#	reading lists: support several articles (each with title + people + year + url)
+# This script takes a human readable cave report text file (version 2)
+# and produces a human readable cave report text file (version 3).
+# This reformatting facilitates better support for activityJSON.
 
 
 # INPUT TEXT FILE FORMAT
 #
-#	- 14 rows per cave record
-#	- 1: Cave name. Alternative names separated by "space / space".
-#			Each name can contain additional info separated by "space - space".
-#			CaveName1 - entranceA / Cavename2 - entranceA / Cavename3 / ...
-#			Also: CaveName - Visitor centre, CaveName - Parking lot, etc.
-#			CaveName can contain letters, numbers, space, underscore, dash (no space around it)
-#	- 2: Description field. Additional information. Eg. dimensions, structure, etc.
-#	- 3: reference system (koordinate systems ykj and wgs84 supported)
-#	- 4: lat or N as decimal number
-#	- 5: lon or E as decimal number
-#	- 6: Location (part of country)
-#	- 7: Country
-#	- 8: Continent
-#	- 9: Accurary and length in metres: Examples; approx 7 OR exact 7
-#	- 10: Name of person reporting the cave
-#	- 11: Activity [Caving|Diving]
-#	- 12: Subactivity 	[Basic|Swimming|Boating|Diving|SRT|Digging|Skiing|None]
-#				[Rock,Ice,Other-Material,Man-Made]
-#				[Rock-Granite|Rock-Limestone|Rock-Sandstone|Rock-Marble|Rock-Volcanic|Rock-Other]
-#				[Morphology-Crack|Morphology-Boulders|Morphology-Karst|Morphology-Volcanic|Morphology-Erosion|Morphology-Other]
+#	14 rows per cave record:
+#
+#	1: Cave name. Alternative names separated by "space / space".
+#		Each name can contain additional info separated by "space - space".
+#		CaveName1 - entranceA / Cavename2 - entranceA / Cavename3 / ...
+#		Also: CaveName - Visitor centre, CaveName - Parking lot, etc.
+#		CaveName can contain letters, numbers, space, underscore, dash (no space around it)
+#	2: Description field. Additional information. Eg. dimensions, structure, etc.
+#	3: reference system (koordinate systems ykj and wgs84 supported)
+#	4: lat or N as decimal number
+#	5: lon or E as decimal number
+#	6: Location (part of country)
+#	7: Country
+#	8: Continent
+#	9: Accurary and length in metres: Examples; approx 7 OR exact 7
+#	10: Name of person reporting the cave
+#	11: Activity [Caving|Diving]
+#	12: Subactivity 	Basic,Swimming,Boating,Diving,SRT,Digging,Skiing,None
+#				Rock,Glacier,Ice,Other-Material,Man-Made # ice because of psgeo
+#				several rock types
+#				several morphological types
 #	- 13: URL pointing to an article
 #	- 14: Optional numeric date + Optional CSV list of names + URL pointing to a cave map + [ + Title + ]
 #				Title is not allowed to contain [
 # OUTPUT FILE FORMAT
-#	- ActivityJSON 2gen
+#	---- CAVE
+#       key  value
+#	key  value
+#       ...
+#       ---- CAVE
+
 
 
 # FILE NAMES

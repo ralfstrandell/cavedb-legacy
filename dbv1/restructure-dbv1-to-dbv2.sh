@@ -10,6 +10,9 @@ workdir=./restructured
 # HUOM! sed vaatii LC_ALL=C jotta utf8-merkit tunnistetaan useana oktettina,
 # eikä yhtenä merkkinä (jolloin .* mätsäys ymv menisivät rikki)
 
+# NOTE! sed requires LC_ALL=C to work flawlessly. Characters in utf8 are treated as several octets then,
+# and not as single letters. Without LC_ALL=C some pattern matching (e.g. with .* would fail).
+
 ls import-*.txt | while read infile
 do
 	outfile=$workdir/$infile
